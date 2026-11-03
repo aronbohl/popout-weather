@@ -8,7 +8,7 @@ import "Model.js" as Model
 // right-click cycles saved locations, middle-click opens the app.
 BarWidget {
   id: root
-  moduleName: "io.github.aronbohl.isobar"
+  moduleName: "io.github.aronbohl.popout-weather"
 
   readonly property var service: bar && bar.shell ? bar.shell.serviceFor(moduleName) : null
   readonly property var tokens: service ? service.tokens : null

@@ -1,7 +1,7 @@
 import QtQuick
 
 // The plugin's panel entry, kept loaded so IPC always reaches it:
-//   omarchy-shell shell call io.github.aronbohl.isobar <method> ''
+//   omarchy-shell shell call io.github.aronbohl.popout-weather <method> ''
 // toggle  — open the app, or close it if it's open on this workspace
 // popover — open the bar popover
 // alert   — notification click-through: select the alert's place, then
@@ -15,7 +15,7 @@ Item {
   property var manifest: null
   property var service: null
 
-  readonly property string pluginId: manifest && manifest.id ? manifest.id : "io.github.aronbohl.isobar"
+  readonly property string pluginId: manifest && manifest.id ? manifest.id : "io.github.aronbohl.popout-weather"
   // Lets `shell toggle` and the shell's open bookkeeping see the app's state.
   readonly property bool opened: app.item ? app.item.opened === true : false
 

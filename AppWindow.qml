@@ -6,7 +6,7 @@ import "Astro.js" as Astro
 import "Radar.js" as Radar
 import "components"
 
-// Isobar, the weather app: a regular Hyprland window with saved locations on the
+// Popout Weather, the weather app: a regular Hyprland window with saved locations on the
 // left and the selected location's forecast on the right.
 //
 // Keys: j/k location · J/K reorder · / search · 0 expand alerts · 1-3 focus pane ·
@@ -180,7 +180,7 @@ Item {
   FloatingWindow {
     id: window
     visible: false
-    title: "Isobar"
+    title: "Popout Weather"
     color: root.tokens.bg
     implicitWidth: root.tokens.px(1360)
     implicitHeight: root.tokens.px(920)
@@ -264,7 +264,7 @@ Item {
             Text {
               textFormat: Text.PlainText
               anchors.verticalCenter: parent.verticalCenter
-              text: "isobar"
+              text: "popout weather"
               color: root.tokens.accent
               font.family: root.tokens.fontFamily
               font.pixelSize: root.tokens.px(14)

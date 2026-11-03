@@ -60,6 +60,6 @@ test("request URLs stay out of process arguments", () => {
   const request = Api.curl(url, 6)
   assert.ok(!request.command.some(arg => arg.includes("Omaha") || arg.includes("open-meteo")))
   assert.ok(request.command.includes("6"))
-  assert.equal(request.environment.ISOBAR_CURL_CONFIG,
+  assert.equal(request.environment.POPOUT_WEATHER_CURL_CONFIG,
     'url = "' + url.replace(/\\/g, "\\\\").replace(/"/g, '\\"') + '"')
 })

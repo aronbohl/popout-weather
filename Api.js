@@ -2,7 +2,7 @@
 // coordinates, so one forecast request and one air-quality request cover
 // every saved location; NWS alerts are one request per US location.
 
-var USER_AGENT = "isobar (github.com/aronbohl/isobar)"
+var USER_AGENT = "popout-weather (github.com/aronbohl/popout-weather)"
 
 var CURRENT = [
   "temperature_2m", "apparent_temperature", "relative_humidity_2m", "dew_point_2m",
@@ -79,12 +79,12 @@ function nwsCovers(location) {
 // environment variable (owner-only in /proc) by the shell's printf builtin.
 // NWS rejects requests without a User-Agent.
 function curl(url, timeoutSeconds) {
-  var argv = ["sh", "-c", 'printf "%s\\n" "$ISOBAR_CURL_CONFIG" | curl -K - "$@"', "sh",
+  var argv = ["sh", "-c", 'printf "%s\\n" "$POPOUT_WEATHER_CURL_CONFIG" | curl -K - "$@"', "sh",
     "-fsS", "--compressed", "--max-time", String(timeoutSeconds || 10)]
   if (url.indexOf("api.weather.gov") !== -1)
     argv.push("-A", USER_AGENT, "-H", "Accept: application/geo+json")
   var quoted = String(url).replace(/\\/g, "\\\\").replace(/"/g, '\\"')
-  return { command: argv, environment: { ISOBAR_CURL_CONFIG: 'url = "' + quoted + '"' } }
+  return { command: argv, environment: { POPOUT_WEATHER_CURL_CONFIG: 'url = "' + quoted + '"' } }
 }
 
 if (typeof module !== "undefined") {

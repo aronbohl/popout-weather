@@ -13,7 +13,7 @@ import "components"
 // r refresh · Esc close.
 Panel {
   id: root
-  moduleName: "io.github.aronbohl.isobar"
+  moduleName: "io.github.aronbohl.popout-weather"
   manageIpc: false
 
   property var anchorItem: null

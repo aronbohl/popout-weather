@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "id": "io.github.aronbohl.isobar",
-  "name": "Isobar",
+  "id": "io.github.aronbohl.popout-weather",
+  "name": "Popout Weather",
   "version": "1.0.0",
   "author": "Aron Bohl",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "panel": "Host.qml"
   },
   "barWidget": {
-    "displayName": "Isobar",
+    "displayName": "Popout Weather",
     "description": "Sky icon with severity-colored alerts and a forecast popover",
     "category": "Info",
     "allowMultiple": false,

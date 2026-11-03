@@ -9,14 +9,14 @@ import "Radar.js" as Radar
 // The single source of weather state for the bar icon, popover and app.
 // Settings live inline on the plugin's shell.json entry (the bar widget hands
 // them over through applyEntry); API responses are cached under
-// ~/.cache/isobar/ so a restart or an offline network still shows
+// ~/.cache/popout-weather/ so a restart or an offline network still shows
 // the last forecast.
 Item {
   id: root
   visible: false
 
-  readonly property string moduleName: "io.github.aronbohl.isobar"
-  readonly property string cacheDir: Quickshell.env("HOME") + "/.cache/isobar"
+  readonly property string moduleName: "io.github.aronbohl.popout-weather"
+  readonly property string cacheDir: Quickshell.env("HOME") + "/.cache/popout-weather"
 
   property var shell: null
   readonly property Tokens tokens: Tokens {}
@@ -360,7 +360,7 @@ Item {
       // Emergencies go out as notify-send so they also break through Do Not
       // Disturb; Omarchy's notifier only trusts that app name for critical.
       var argv = ["omarchy-notification-send",
-        "--app-name", n.urgency === "critical" ? "notify-send" : "Isobar",
+        "--app-name", n.urgency === "critical" ? "notify-send" : "Popout Weather",
         "-g", "\uf071", "-u", n.urgency, n.title, n.body,
         "--exec", "omarchy-shell", "shell", "call", moduleName, "alert", notificationToken(location, fresh[i])]
       Quickshell.execDetached(argv)

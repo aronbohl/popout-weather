@@ -1,4 +1,4 @@
-# Isobar
+# Popout Weather
 
 Weather for [Omarchy](https://omarchy.org): a bar icon that shows the current
 sky and turns red, orange or yellow when a weather alert is active, an
@@ -15,7 +15,7 @@ since several themes repurpose their red.
 ## Install
 
 ```sh
-omarchy plugin add https://github.com/aronbohl/isobar --enable
+omarchy plugin add https://github.com/aronbohl/popout-weather --enable
 ```
 
 `omarchy plugin add` clones and validates the plugin, then asks which bar
@@ -26,19 +26,19 @@ is also in your bar, turn it off:
 omarchy plugin disable omarchy.weather
 ```
 
-Isobar starts with the stock widget's location if you had set one;
+Popout Weather starts with the stock widget's location if you had set one;
 otherwise open the app and press `/` (or "+ add location") to add places.
-Update with `omarchy plugin update io.github.aronbohl.isobar`.
+Update with `omarchy plugin update io.github.aronbohl.popout-weather`.
 
 ## Remove
 
 ```sh
-omarchy plugin remove io.github.aronbohl.isobar
-rm -rf ~/.cache/isobar                    # cached forecasts and sent-alert ids
-omarchy plugin enable omarchy.weather     # the stock widget, if you want it back
+omarchy plugin remove io.github.aronbohl.popout-weather
+rm -rf ~/.cache/popout-weather          # cached forecasts and sent-alert ids
+omarchy plugin enable omarchy.weather   # the stock widget, if you want it back
 ```
 
-Your saved locations and settings live on Isobar's bar entry in
+Your saved locations and settings live on Popout Weather's bar entry in
 `~/.config/omarchy/shell.json`, so removing or disabling the plugin deletes
 them. If you added the keybinding below, delete that line from
 `~/.config/hypr/bindings.lua` too.
@@ -64,7 +64,7 @@ search, what you type) and nothing else:
 | `tilecache.rainviewer.com` | radar images | only once the radar has been on screen |
 
 It writes only to its own entry in `shell.json` (through Omarchy's settings
-API) and to `~/.cache/isobar/`. It reads the stock widget's
+API) and to `~/.cache/popout-weather/`. It reads the stock widget's
 `~/.local/state/omarchy/settings/weather.json` once, for a starting location.
 
 ## Bar icon
@@ -85,7 +85,7 @@ opens the app. Plugins can't add their own key bindings, so to open the
 popover from the keyboard, add one to `~/.config/hypr/bindings.lua`:
 
 ```lua
-o.bind("SUPER + ALT + W", "Isobar", "omarchy-shell shell call io.github.aronbohl.isobar popover ''")
+o.bind("SUPER + ALT + W", "Popout Weather", "omarchy-shell shell call io.github.aronbohl.popout-weather popover ''")
 ```
 
 From there, `↵` opens the app.
@@ -97,7 +97,7 @@ Watches, warnings and emergencies send one desktop notification per alert
 (updates to an alert stay quiet). Emergencies stay until dismissed and break
 through Do Not Disturb. The notification names only the alert type, not the
 place or its details, because its text is passed to the notifier as command
-arguments that other users on the machine can see; open Isobar for the rest.
+arguments that other users on the machine can see; open Popout Weather for the rest.
 
 ## App
 
@@ -138,7 +138,7 @@ Stored inline on the plugin's entry in `~/.config/omarchy/shell.json`:
 
 ```json
 {
-  "id": "io.github.aronbohl.isobar",
+  "id": "io.github.aronbohl.popout-weather",
   "locations": [{ "name": "Omaha", "region": "Nebraska, United States",
                   "latitude": 41.25626, "longitude": -95.94043, "countryCode": "US" }],
   "selected": 0,
@@ -154,15 +154,15 @@ With no `locations`, the first one comes from the stock widget's
 locale), `metric` or `imperial`. `scrollSpeed` (percent, 50–800) multiplies
 touchpad scrolling in the app; 250 roughly offsets Omarchy's 0.4 touchpad
 `scroll_factor`. Responses are cached in
-`~/.cache/isobar/`, which is readable only by you.
+`~/.cache/popout-weather/`, which is readable only by you.
 
 ## IPC
 
 ```sh
-omarchy-shell shell call io.github.aronbohl.isobar toggle ''
-omarchy-shell shell call io.github.aronbohl.isobar popover ''
-omarchy-shell shell call io.github.aronbohl.isobar refresh ''
-omarchy-shell shell call io.github.aronbohl.isobar next ''
+omarchy-shell shell call io.github.aronbohl.popout-weather toggle ''
+omarchy-shell shell call io.github.aronbohl.popout-weather popover ''
+omarchy-shell shell call io.github.aronbohl.popout-weather refresh ''
+omarchy-shell shell call io.github.aronbohl.popout-weather next ''
 ```
 
 ## Development
@@ -171,9 +171,9 @@ To work on it, symlink your local checkout instead of installing. From the
 checkout's folder:
 
 ```sh
-ln -s "$PWD" ~/.config/omarchy/plugins/io.github.aronbohl.isobar
+ln -s "$PWD" ~/.config/omarchy/plugins/io.github.aronbohl.popout-weather
 omarchy-shell shell rescanPlugins
-omarchy plugin enable io.github.aronbohl.isobar
+omarchy plugin enable io.github.aronbohl.popout-weather
 ```
 
 Checks:

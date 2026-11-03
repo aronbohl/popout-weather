@@ -117,7 +117,7 @@ test("notification copy and urgency", () => {
   const [alert] = Alerts.parse(fixture("nws-omaha.json"), OMAHA_NOW)
   assert.deepEqual(Alerts.notification(alert), {
     title: "FREEZE WARNING",
-    body: "For one of your saved places. Open Isobar for details.",
+    body: "For one of your saved places. Open Popout Weather for details.",
     urgency: "normal"
   })
   const [emergency] = Alerts.parse({ features: [feature({ event: "Tornado Emergency", instruction: "TAKE COVER NOW!  Move to a basement." })] }, NOW)

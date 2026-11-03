@@ -200,7 +200,7 @@ function firstSentence(text) {
 function notification(alert) {
   return {
     title: alert.event.toUpperCase(),
-    body: "For one of your saved places. Open Isobar for details.",
+    body: "For one of your saved places. Open Popout Weather for details.",
     urgency: alert.level === "emergency" ? "critical" : "normal"
   }
 }
