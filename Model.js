@@ -123,6 +123,7 @@ function parseGeocoding(raw) {
 
 // ------------------------------------------------------------------- units
 
+// From Omarchy's weather plugin; its notice is in LICENSE.
 function localeUsesImperial(localeName) {
   var name = String(localeName || "").replace(".", "_")
   return /^en[_-]US($|[_.-])/.test(name) || /^en[_-]LR($|[_.-])/.test(name) || /^my($|[_.-])/.test(name)

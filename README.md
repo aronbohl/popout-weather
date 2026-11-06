@@ -192,4 +192,5 @@ service; run `omarchy restart shell` after changes. Logs:
 
 ## License
 
-MIT, see [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE), which also carries Omarchy's MIT notice for a small
+helper taken from its weather plugin.
